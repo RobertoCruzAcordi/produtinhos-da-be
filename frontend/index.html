@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtinhos da Bê - Cosméticos Premium</title>
+    <link rel="stylesheet" href="styles/style.css">
+    
+</head>
+
+<body>
+    <!-- 🛒 BOTÃO FLUTUANTE DO CARRINHO -->
+    <button id="btn-abrir-carrinho" class="btn-carrinho-flutuante">
+        🛒 <span id="carrinho-contador" class="carrinho-contador">0</span>
+    </button>
+
+    <!-- 🛒 MODAL DO CARRINHO -->
+    <div id="carrinho-modal" class="modal-carrinho">
+        <div class="carrinho-content">
+            <div class="carrinho-header">
+                <h2>🛒 Meu Carrinho</h2>
+                <button class="fechar-carrinho">&times;</button>
+            </div>
+            
+            <div class="carrinho-items">
+                <!-- Itens serão inseridos aqui pelo JavaScript -->
+            </div>
+            
+            <div class="carrinho-total">
+                <strong>Total: R$ <span id="carrinho-total">0,00</span></strong>
+            </div>
+            
+            <div class="carrinho-actions">
+                <button class="btn-continuar">Continuar Comprando</button>
+                <button class="btn-finalizar">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔥 NAVEGAÇÃO ELEGANTE -->
+    <nav class="main-nav">
+        <div class="nav-brand">
+            <span>💄 Produtinhos da Bê</span>
+        </div>
+        
+        <!-- MENU NORMAL (PC) -->
+        <div class="nav-links">
+            <a href="#" onclick="voltarAoTopo()">Início</a>
+            <a href="#products" onclick="scrollToProducts()">Produtos</a>
+            <a href="#about" onclick="scrollToAbout()">Sobre</a>
+            <a href="#contact" onclick="scrollToContact()">Contato</a>
+            <a href="admin.html">Admin</a>
+        </div>
+        
+        <div class="nav-icons">
+            <span>🔍</span>
+            <span>🛒</span>
+            <span>👤</span>
+        </div>
+        
+        <!-- MENU MOBILE (aparece só no celular) -->
+        <div class="menu-mobile">
+            <button class="hamburger" onclick="toggleMenu()">☰</button>
+            <div class="mobile-nav">
+                <a href="#" onclick="voltarAoTopo()">Início</a>
+                <a href="#products" onclick="scrollToProducts()">Produtos</a>
+                <a href="#about" onclick="scrollToAbout()">Sobre</a>
+                <a href="#contact" onclick="scrollToContact()">Contato</a>
+                <a href="admin.html">Admin</a>
+                <div class="mobile-icons">
+                    <span>🔍</span>
+                    <span>🛒</span>
+                    <span>👤</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🎭 BANNER HERO COM SLIDESHOW -->
+    <header class="hero-section">
+        <div class="header-slideshow">
+            <div class="header-slide active" style="background-color: #ff6b8b;"></div>
+            <div class="header-slide" style="background-color: #a78bfa;"></div>
+            <div class="header-slide" style="background-color: #f59e0b;"></div>
+        </div>
+
+        <div class="header-overlay"></div>
+
+        <div class="hero-content">
+            <h1>Descubra Sua Beleza Única</h1>
+            <p class="tagline">Cosméticos naturais que realçam sua essência</p>
+            <button class="cta-button" onclick="scrollToProducts()">Explorar Produtos</button>
+        </div>
+    </header>
+
+    <!-- 🛍️ SEÇÃO DE PRODUTOS COM BUSCA -->
+    <main>
+        <section class="products-section" id="products">
+            <h2>Nossos Produtos</h2>
+            <p class="section-subtitle">Descubra nossa seleção premium de cosméticos naturais</p>
+
+            <!-- 🔍 BARRA DE BUSCA AVANÇADA -->
+            <div class="search-store-container">
+                <div class="search-store">
+                    <input type="text" id="search-store" placeholder="🔍 Buscar por nome, descrição ou tags..."
+                        class="search-input">
+                    <select id="category-filter" class="category-filter">
+                        <option value="">Todas as categorias</option>
+                        <option value="skincare">Skincare</option>
+                        <option value="maquiagem">Maquiagem</option>
+                        <option value="cabelos">Cabelos</option>
+                        <option value="corpo">Corpo</option>
+                        <option value="perfumaria">Perfumaria</option>
+                    </select>
+                    <select id="price-filter" class="price-filter">
+                        <option value="">Qualquer preço</option>
+                        <option value="0-50">Até R$ 50</option>
+                        <option value="50-100">R$ 50 - R$ 100</option>
+                        <option value="100-200">R$ 100 - R$ 200</option>
+                        <option value="200+">Acima de R$ 200</option>
+                    </select>
+                    <button id="clear-filters" class="clear-filters-btn">🔄 Limpar</button>
+                </div>
+                <div class="search-results-info">
+                    <span id="results-count">Carregando produtos...</span>
+                </div>
+            </div>
+
+            <div class="products-grid" id="products-grid">
+                <!-- 🎯 PRODUTOS CARREGADOS VIA JAVASCRIPT -->
+                <div class="loading-message">
+                    <p>🔄 Carregando produtos...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 🌿 SEÇÃO SOBRE -->
+        <section class="about-section" id="about">
+            <div class="about-content">
+                <h2>Beleza Consciente</h2>
+                <p>Nossos produtos são desenvolvidos com ingredientes naturais, livres de crueldade animal e embalagens
+                    sustentáveis.</p>
+                <div class="features">
+                    <div class="feature">🌱 Natural</div>
+                    <div class="feature">🐰 Cruelty Free</div>
+                    <div class="feature">♻️ Sustentável</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 💬 SEÇÃO DE CONTATO SIMPLES -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <h2>Fale Conosco</h2>
+            <p class="contact-subtitle">Estamos aqui para te ajudar!</p>
+            
+            <div class="contact-content-simple">
+                <!-- CARD DE WHATSAPP -->
+                <div class="whatsapp-card">
+                    <div class="whatsapp-icon">💚</div>
+                    <div class="whatsapp-info">
+                        <h3>WhatsApp</h3>
+                        <p>Atendimento rápido e personalizado</p>
+                        <p class="whatsapp-description">Clique no botão abaixo para conversar diretamente conosco no WhatsApp. Respondemos em poucos minutos! 🚀</p>
+                    </div>
+                </div>
+                
+                <!-- BOTÃO GRANDE DE WHATSAPP -->
+                <div class="whatsapp-action">
+                    <a href="https://wa.me/5548999638110" class="whatsapp-btn" target="_blank">
+                        <span class="whatsapp-btn-icon">💬</span>
+                        <span class="whatsapp-btn-text">Falar no WhatsApp</span>
+                    </a>
+                    <p class="whatsapp-note">Você será redirecionado para nosso WhatsApp</p>
+                </div>
+            </div>
+            
+            <!-- REDES SOCIAIS -->
+            <div class="social-links">
+                <p>Ou nos acompanhe nas redes sociais:</p>
+                <div class="social-buttons">
+                    <a href="https://instagram.com/produtinhosdabe" class="social-btn instagram" target="_blank">
+                        📷 Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📞 RODAPÉ -->
+    <footer class="main-footer">
+        <p>&copy; 2024 Produtinhos da Bê - Todos os direitos reservados</p>
+    </footer>
+
+    <script src="scripts/script.js"></script>
+</body>
+
+</html>
