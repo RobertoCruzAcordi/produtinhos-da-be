@@ -17,7 +17,8 @@
     --light: #f8fafc;
 }
 
-html, body {
+html,
+body {
     width: 100%;
     height: 100%;
     scroll-behavior: smooth;
@@ -743,6 +744,7 @@ main {
     from {
         transform: translateX(100%);
     }
+
     to {
         transform: translateX(0);
     }
@@ -785,6 +787,32 @@ main {
 
 .fechar-carrinho:hover {
     color: #ff6b8b;
+}
+
+/* ===== INSTRUÇÕES DO CARRINHO ===== */
+.carrinho-instructions {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 15px 0;
+    border-left: 4px solid var(--primary-color);
+}
+
+.carrinho-instructions h4 {
+    margin-bottom: 10px;
+    color: var(--text-dark);
+    font-size: 1rem;
+}
+
+.carrinho-instructions ol {
+    margin-left: 20px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.carrinho-instructions li {
+    margin-bottom: 8px;
+    line-height: 1.4;
 }
 
 .carrinho-items {
@@ -889,12 +917,18 @@ main {
 }
 
 .btn-finalizar {
-    background: #ff6b8b;
+    background: #25D366;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .btn-finalizar:hover {
-    background: #ff4d7a;
+    background: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
 }
 
 /* ===== RESPONSIVIDADE ===== */
@@ -978,6 +1012,15 @@ main {
         flex-direction: column;
         align-items: center;
     }
+
+    .carrinho-instructions {
+        margin: 10px 0;
+        padding: 12px;
+    }
+
+    .carrinho-instructions ol {
+        margin-left: 15px;
+    }
 }
 
 /* PC */
@@ -1013,13 +1056,248 @@ main {
         width: 100%;
         justify-content: center;
     }
-    
+
     .mobile-nav {
         padding: 1.5rem;
     }
-    
+
     .mobile-nav a {
         font-size: 1rem;
         padding: 0.8rem 0;
     }
+
+    .carrinho-instructions {
+        padding: 10px;
+    }
+
+    .carrinho-instructions h4 {
+        font-size: 0.9rem;
+    }
+
+    .carrinho-instructions li {
+        font-size: 0.8rem;
+    }
+}
+
+/* ===== MODAL DE CADASTRO ===== */
+.modal-cadastro {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.cadastro-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.cadastro-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 1rem;
+}
+
+.cadastro-header h2 {
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.fechar-cadastro {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--text-light);
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fechar-cadastro:hover {
+    color: var(--primary-color);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: var(--light);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(255, 107, 139, 0.1);
+}
+
+.cadastro-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn-cancelar-cadastro,
+.btn-confirmar-cadastro {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-cancelar-cadastro {
+    background: var(--text-light);
+    color: white;
+}
+
+.btn-cancelar-cadastro:hover {
+    background: var(--text-dark);
+}
+
+.btn-confirmar-cadastro {
+    background: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-confirmar-cadastro:hover {
+    background: #ff4d7a;
+    transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .cadastro-content {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .cadastro-actions {
+        flex-direction: column;
+    }
+}
+
+/* CORREÇÃO DO MENU MOBILE */
+.menu-mobile {
+    z-index: 1000 !important;
+    position: relative;
+}
+
+.mobile-nav {
+    z-index: 1001 !important;
+}
+
+/* Garantir que o menu fique acima de tudo */
+.main-nav {
+    z-index: 999;
+    position: relative;
+}
+
+/* Corrigir possível overlay do hero */
+.hero-section {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== POLÍTICA DE CANCELAMENTO ===== */
+.politica-cancelamento {
+    margin: 20px 0;
+    padding: 15px;
+    background: #f0f8ff;
+    border-radius: 8px;
+    border: 1px solid #b3d9ff;
+}
+
+.politica-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.politica-checkbox input[type="checkbox"] {
+    margin-top: 3px;
+    transform: scale(1.1);
+}
+
+.politica-checkbox label {
+    line-height: 1.4;
+}
+
+.politica-checkbox strong {
+    color: #0066cc;
+}
+
+/* ADICIONAR AO CSS - Estilos para o formulário de cadastro */
+.cadastro-form {
+    margin-top: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+    font-family: inherit;
+}
+
+/* Garantir que os modais tenham z-index alto */
+.modal-cadastro {
+    z-index: 2000;
+}
+
+.modal-carrinho {
+    z-index: 1000;
 }

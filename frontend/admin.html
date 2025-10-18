@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Admin - Beleza Natural</title>
     <link rel="stylesheet" href="styles/admin.css">
 </head>
+
 <body>
     <div class="admin-container">
         <!-- SIDEBAR -->
@@ -30,7 +32,7 @@
                     <h1>Cadastrar Novo Produto</h1>
                     <p>Adicione novos produtos ao catálogo da loja</p>
                 </div>
-                
+
                 <form id="form-produto" class="product-form">
                     <div class="form-grid">
                         <!-- IMAGEM DO PRODUTO -->
@@ -106,7 +108,8 @@
                     <div class="form-actions">
                         <button type="submit" class="btn-primary">💾 Salvar Produto</button>
                         <button type="button" class="btn-secondary" id="btn-limpar">🔄 Limpar Formulário</button>
-                        <button type="button" class="btn-danger" id="btn-cancelar" style="display: none;">❌ Cancelar Edição</button>
+                        <button type="button" class="btn-danger" id="btn-cancelar" style="display: none;">❌ Cancelar
+                            Edição</button>
                     </div>
                 </form>
             </section>
@@ -122,6 +125,7 @@
                     <div class="search-bar">
                         <input type="text" id="search" placeholder="🔍 Buscar por nome, descrição ou tags...">
                     </div>
+
                     <div class="filter-group">
                         <select id="filter-category">
                             <option value="">Todas as categorias</option>
@@ -136,6 +140,39 @@
                             <option value="inativo">Inativos</option>
                         </select>
                     </div>
+                </div>
+
+                <!-- 🔥 ADICIONAR ESTES BOTÕES NA SEÇÃO DE LISTA -->
+                <div class="table-actions"
+                    style="margin-bottom: 1.5rem; display: flex; gap: 1rem; justify-content: flex-end;">
+                    <button class="btn-warning" onclick="productManager.limparImagensBase64()"
+                        style="padding: 0.7rem 1.5rem; font-size: 0.9rem;">
+                        🖼️ Converter Imagens
+                    </button>
+                    <button class="btn-secondary" onclick="productManager.exportData()"
+                        style="padding: 0.7rem 1.5rem; font-size: 0.9rem;">
+                        📤 Exportar Dados
+                    </button>
+                    <button class="btn-secondary" onclick="productManager.importData()"
+                        style="padding: 0.7rem 1.5rem; font-size: 0.9rem;">
+                        📥 Importar Dados
+                    </button>
+                    <button class="btn-danger" onclick="productManager.limparStorage()"
+                        style="padding: 0.7rem 1.5rem; font-size: 0.9rem;">
+                        🗑️ Limpar Tudo
+                    </button>
+                </div>
+
+                <div class="table-actions"
+                    style="margin-bottom: 1.5rem; display: flex; gap: 1rem; justify-content: flex-end;">
+                    <button class="btn-danger" onclick="productManager.limparStorage()"
+                        style="padding: 0.7rem 1.5rem; font-size: 0.9rem;">
+                        🗑️ Limpar Storage
+                    </button>
+                    <button class="btn-secondary" onclick="productManager.exportData()"
+                        style="padding: 0.7rem 1.5rem; font-size: 0.9rem;">
+                        📤 Exportar Dados
+                    </button>
                 </div>
 
                 <div class="products-table-container">
@@ -195,4 +232,5 @@
 
     <script src="scripts/admin.js"></script>
 </body>
+
 </html>
